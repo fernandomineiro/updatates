@@ -49,7 +49,7 @@ if ($_SESSION['id']=""){
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
@@ -163,13 +163,14 @@ if ($_SESSION['id']=""){
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>Mensagens</span>
+            <i class="fa fa-edit"></i> <span>SMS</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="mensagem.php"><i class="fa fa-circle-o"></i> Enviar mensagens</a></li>
+            <li><a href="mensagem.php"><i class="fa fa-circle-o"></i> Enviar SMS</a></li>
+            <li><a href="registro.php"><i class="fa fa-circle-o"></i> Registros</a></li>
 
           </ul>
         </li>
