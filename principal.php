@@ -83,7 +83,7 @@ include "config.php";
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="tableusuario.php" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -109,7 +109,7 @@ include "config.php";
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="#" class="small-box-footer">Mais informações<i class="fa fa-arrow-circle-right"></i></a>
+            <a href="tablesms.php" class="small-box-footer">Mais informações<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
