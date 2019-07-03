@@ -50,7 +50,7 @@ if ($_SESSION['id']==""){
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="" class="logo">
+    <a href="principal.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
@@ -161,7 +161,7 @@ if ($_SESSION['id']==""){
           <ul class="treeview-menu">
             <li><a href="clientes.php"><i class="fa fa-circle-o"></i> Clientes</a></li>
             <li><a href="cadusuario.php"><i class="fa fa-circle-o"></i> Usuario</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Telefone</a></li>
+            <li><a href="telefone.php"><i class="fa fa-circle-o"></i> Telefone</a></li>
           </ul>
         </li>
         <li class="treeview">
