@@ -159,7 +159,7 @@ if ($_SESSION['id']==""){
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="clientes.php"><i class="fa fa-circle-o"></i> Clientes</a></li>
+            
             <li><a href="cadusuario.php"><i class="fa fa-circle-o"></i> Usuario</a></li>
             <li><a href="telefone.php"><i class="fa fa-circle-o"></i> Telefone</a></li>
           </ul>
