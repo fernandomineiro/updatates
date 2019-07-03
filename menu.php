@@ -1,6 +1,7 @@
 <?php
+include "config.php";
 session_start();
-if ($_SESSION['id']=""){
+if ($_SESSION['id']==""){
   header('location:index.php');
 }
 ?>
@@ -130,6 +131,7 @@ if ($_SESSION['id']=""){
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
+        
           <p> <?php echo $_SESSION['nome'];?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -159,6 +161,7 @@ if ($_SESSION['id']=""){
           <ul class="treeview-menu">
             <li><a href="clientes.php"><i class="fa fa-circle-o"></i> Clientes</a></li>
             <li><a href="cadusuario.php"><i class="fa fa-circle-o"></i> Usuario</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i> Telefone</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -174,6 +177,7 @@ if ($_SESSION['id']=""){
 
           </ul>
         </li>
+        
      </ul>
     </section>
     <!-- /.sidebar -->
