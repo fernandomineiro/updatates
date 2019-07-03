@@ -25,7 +25,7 @@
             <form role="form" action="" method="POST">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Digite seu texro</label>
+                  <label for="exampleInputEmail1">Digite seu texto</label>
                   <input type="text" class="form-control" name="texto" id="exampleInputEmail1" placeholder="Digite seu texto">
                 </div>
                 
