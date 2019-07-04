@@ -1,7 +1,7 @@
 <?php
 include "config.php";
 
-$sql = "SELECT nome, tipo FROM MyGuests";
+$sql = "SELECT nome, tipo FROM usuario";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
