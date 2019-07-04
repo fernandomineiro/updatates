@@ -79,7 +79,7 @@ include "config.php";
         }
         else{
           ?>
-          <a href="tableusuario.php" class="small-box-footer">Sem informações</a>
+          <a href="" class="small-box-footer">Sem informações</a>
           
           <?php
         }
