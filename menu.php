@@ -11,6 +11,7 @@ if ($_SESSION['id']==""){
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>CICS</title>
+  
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -65,40 +66,68 @@ if ($_SESSION['id']==""){
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
-            </a>
-          </li>
-          <!-- Notifications: style can be found in dropdown.less -->
-          <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
-          </li>
-          <!-- Tasks: style can be found in dropdown.less -->
-          <li class="dropdown tasks-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
-            </a>
-          </li>
+        
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+            <?php
+            $idusuario = $_SESSION['id']; 
+     $sql = "SELECT * FROM image where id_usuario ='$idusuario'";
+	 $result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+	 ?>
+	  
+    <img class="user-image"  src="<?php echo $row['location']; ?>" alt="User profile picture">
+    
+	<?php 
+	  }
+    }
+    else{
+      ?>
+      <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+      <?php
+    }
+  ?>
+
+
+
+
+              
               <span class="hidden-xs"> <?php echo $_SESSION['nome'];?> </span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <?php
+            $idusuario = $_SESSION['id']; 
+     $sql = "SELECT * FROM image where id_usuario ='$idusuario'";
+	 $result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+	 ?>
+	  
+    <img class="profile-user-img img-responsive img-circle"  src="<?php echo $row['location']; ?>" alt="User profile picture">
+    
+	<?php 
+	  }
+    }
+    else{
+      ?>
+      <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+      <?php
+    }
+  ?>
+
+
+
+
+                
 
                 <p>
-                  Gestora
+                  Gestor
                   <small>Sucesso do cliente</small>
                 </p>
               </li>
@@ -128,7 +157,27 @@ if ($_SESSION['id']==""){
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        <?php
+            $idusuario = $_SESSION['id']; 
+     $sql = "SELECT * FROM image where id_usuario ='$idusuario'";
+	 $result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+	 ?>
+	  
+    <img class="profile-user-img img-responsive img-circle"  src="<?php echo $row['location']; ?>" alt="User profile picture">
+    
+	<?php 
+	  }
+    }
+    else{
+      ?>
+      <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+       
+      <?php
+    }
+  ?>
         </div>
         <div class="pull-left info">
         
@@ -159,8 +208,13 @@ if ($_SESSION['id']==""){
             </span>
           </a>
           <ul class="treeview-menu">
-            
+            <?php
+            if ($_SESSION['tipo'] == "admin"){
+                ?>
             <li><a href="cadusuario.php"><i class="fa fa-circle-o"></i> Usuario</a></li>
+            <?php
+        }
+            ?>
             <li><a href="telefone.php"><i class="fa fa-circle-o"></i> Telefone</a></li>
           </ul>
         </li>
