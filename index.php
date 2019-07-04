@@ -105,6 +105,7 @@ if(isset($_POST['login'])){
 
     $_SESSION['id']=$row['id'];
     $_SESSION['nome']=$row['nome'];
+    $_SESSION['tipo']=$row['tipo'];
 
     
     header('location:principal.php');
@@ -131,3 +132,4 @@ if(isset($_POST['login'])){
 </script>
 </body>
 </html>
+
