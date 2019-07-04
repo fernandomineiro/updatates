@@ -23,13 +23,49 @@ include"menu.php";?>
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="dist/img/user4-128x128.jpg" alt="User profile picture">
+            <?php
+            $idusuario = $_SESSION['id']; 
+     $sql = "SELECT * FROM image where id_usuario ='$idusuario'";
+	 $result = $conn->query($sql);
 
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+	 ?>
+	  
+    <img class="profile-user-img img-responsive img-circle"  src="<?php echo $row['location']; ?>" alt="User profile picture">
+    
+	<?php 
+	  }
+    }
+    else{
+      ?>
+      <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+      <?php
+    }
+  ?>
+ 
               <h3 class="profile-username text-center"><?php echo $_SESSION['nome'];?></h3>
+<?php
+$ola =$_SESSION['tipo'];
+?>
+              <p class="text-muted text-center"><?php echo"$ola";?></p>
+              <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+                            
+                            
+                                <div class="control-group">
+                                    <label class="control-label" for="input01"></label>
+                                    <div class="controls">
+                                        <input type="file" name="image" class="font"  required> 
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
 
-              <p class="text-muted text-center">Gestora</p>
-
-              <a href="#" class="btn btn-primary btn-block"><b>Mudar foto</b></a>
+                                        <button type="submit" class="btn btn-primary btn-block" name="submit" class="btn btn-success">Mudar foto</button>
+                                    </div>
+                                </div>
+                            </form>
+              
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
                 <?php
@@ -117,7 +153,7 @@ if ($result->num_rows > 0) {
                     <label for="inputName"  class="col-sm-2 control-label">Senha antiga</label>
 
                     <div class="col-sm-10">
-                      <input type="text" required name="senhaantiga" class="form-control" id="inputName">
+                      <input type="password" required name="senhaantiga" class="form-control" id="inputName">
                     </div>
                   </div>
                 <div class="form-group">
@@ -160,9 +196,9 @@ if ($result->num_rows > 0) {
   $sql = "UPDATE usuario SET nome='$novo' WHERE senha='$senha'";
 
   if ($conn->query($sql) === TRUE) {
-      echo "Atualizado com sucesso";
-      $_SESSION['nome'] = $novo;
       
+      $_SESSION['nome'] = $novo;
+      echo "<script>window.location = 'perfil.php'</script>";
   } else {
       echo "Error updating record: " . $conn->error;
   }
@@ -242,3 +278,46 @@ if ($result->num_rows > 0) {
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
+<?php
+ if (isset($_POST['submit'])) {
+  $idusuario = $_SESSION['id'];                         
+  $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
+  $image_name = addslashes($_FILES['image']['name']);
+  $image_size = getimagesize($_FILES['image']['tmp_name']);
+
+  $location = "upload/" . $_FILES["image"]["name"];
+  
+  
+    $sql = "DELETE FROM image WHERE id_usuario='$idusuario'";
+
+  if ($conn->query($sql) === TRUE) {
+    if (move_uploaded_file($_FILES['image']['tmp_name'], 'upload/'. $_FILES["image"]['name'])) {
+      $sql = "INSERT INTO image (location, id_usuario)
+      VALUES ('$location', '$idusuario')";
+      
+      if ($conn->query($sql) === TRUE) {
+        echo "<script>window.location = 'perfil.php'</script>";
+      } else {
+          echo "Error: " . $sql . "<br>" . $conn->error;
+      }
+   
+   
+    }
+    else {
+      echo "File was not uploaded";
+   }
+    
+   } else {
+    echo "Error deleting record: " . $conn->error;
+}
+ 
+
+
+
+
+  
+
+  
+ }
+?>
+ 
