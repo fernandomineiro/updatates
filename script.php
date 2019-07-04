@@ -1,10 +1,17 @@
 <?php
 include "config.php";
 
-$sql = "UPDATE usuario SET tipo='admin' WHERE nome='fernando'";
+$sql = "SELECT nome, tipo FROM MyGuests";
+$result = $conn->query($sql);
 
-if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo  $row["nome"]; 
+        echo  $row["tipo"];
+    }
 } else {
-    echo "Error updating record: " . $conn->error;
+    echo "0 results";
 }
+$conn->close();
+?>
