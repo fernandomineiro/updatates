@@ -3,12 +3,13 @@ include "menu.php";
 include "config.php";
 
 ?>
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        SMS
+        Usuario
         <small>Registro</small>
       </h1>
       
@@ -21,7 +22,7 @@ include "config.php";
           <!-- /.box -->
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Tabela de registros de SMS</h3>
+              <h3 class="box-title">Tabela de registros de usuario</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -30,12 +31,14 @@ include "config.php";
                 <tr>
                   <th>Nome</th>
                   <th>Email</th>
+                  <th>Editar</th>
+                  <th>Exluir</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <?php
-                    $sql = "SELECT nome, email FROM usuario";
+                    $sql = "SELECT id,nome, email FROM usuario";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
                         // output data of each row
@@ -43,7 +46,9 @@ include "config.php";
                     ?>
                   <td><?php echo $row["nome"]; ?></td>
                   <td><?php echo $row["email"]; ?></td>
-                  
+                  <td><a href="#edit_<?php echo $row['id']; ?>" class="btn btn-success btn-sm" data-toggle="modal"><span class="glyphicon glyphicon-edit"></span> Editar</a></td>
+                  <td><a href="#delete_<?php echo $row['id']; ?>" class="btn btn-danger btn-sm" data-toggle="modal"><span class="glyphicon glyphicon-trash"></span> Deletar</a></td>
+                  <?php include('edit_delete_modal.php'); ?>
                 </tr>
                 <?php
                   }
@@ -108,3 +113,4 @@ include "config.php";
 </script>
 </body>
 </html>
+
