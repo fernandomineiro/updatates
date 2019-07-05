@@ -1,6 +1,12 @@
 <?php
 session_start();
 include "config.php";
+
+if (@$_SESSION['nome']!= ""){
+  echo "<script>window.location = 'principal.php'</script>";
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -74,7 +80,7 @@ include "config.php";
     
     <!-- /.social-auth-links -->
 
-    <a href="#">Eu perdi minha senha</a><br>
+    <a href="recuperarsenha.php">Eu perdi minha senha</a><br>
     
 
   </div>
@@ -132,4 +138,5 @@ if(isset($_POST['login'])){
 </script>
 </body>
 </html>
+
 
