@@ -53,7 +53,7 @@ if ($_SESSION['id']==""){
     <!-- Logo -->
     <a href="principal.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"></span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>CICS</span>
     </a>
@@ -226,7 +226,8 @@ if ($result->num_rows > 0) {
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="mensagem.php"><i class="fa fa-circle-o"></i> Enviar SMS</a></li>
+            <li><a href="umamensagem.php"><i class="fa fa-circle-o"></i> Enviar um SMS</a></li>
+            <li><a href="mensagem.php"><i class="fa fa-circle-o"></i> Enviar vários SMS</a></li>
             <li><a href="registro.php"><i class="fa fa-circle-o"></i> Registros</a></li>
 
           </ul>
