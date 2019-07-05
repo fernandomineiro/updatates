@@ -149,13 +149,7 @@ if ($result->num_rows > 0) {
                 <!-- Post -->
                 
                 <form class="form-horizontal" action="" method="POST">
-                <div class="form-group">
-                    <label for="inputName"  class="col-sm-2 control-label">Senha antiga</label>
-
-                    <div class="col-sm-10">
-                      <input type="password" required name="senhaantiga" class="form-control" id="inputName">
-                    </div>
-                  </div>
+                
                 <div class="form-group">
                     <label for="inputName"  class="col-sm-2 control-label">Senha nova</label>
 
@@ -163,13 +157,7 @@ if ($result->num_rows > 0) {
                       <input type="text" required name="senha" class="form-control" id="inputName">
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label for="inputName"  class="col-sm-2 control-label">Repetir senha</label>
-
-                    <div class="col-sm-10">
-                      <input type="password" required name="repetirsenha" class="form-control" id="inputName"  placeholder="">
-                    </div>
-                  </div>
+                  
                  
                   
                   <div class="form-group">
@@ -211,27 +199,17 @@ if ($result->num_rows > 0) {
                 
                 
                 if (isset($_POST["atualizarsenha"])){
-                  $senhaantiga= $_POST["senhaantiga"];
+                  
                   $senha= $_POST["senha"];
-                  $repetirsenha= $_POST["repetirsenha"];
-                    if($senha == $repetirsenha){
-                    $sql = "SELECT senha FROM usuario where senha = '$senhaantiga' and nome='$nome'";
-                    $result = $conn->query($sql);
-                      if ($result->num_rows > 0) {
+                  
+                    
+                    
                       $sql = "UPDATE usuario SET senha='$senha' WHERE nome='$nome'";
                         if ($conn->query($sql) === TRUE) {
                          echo "Senha atualizada com sucesso";
                          } else {
                          echo "erro: " . $conn->error;
-                         }
-                      } 
-                      else {
-                      echo "Senha errada";
-                      } 
-                    }
-                   else{
-                     echo"senhas diferentes";
-                  }
+                         }           
                 }
               ?>
               <!-- /.tab-pane -->
