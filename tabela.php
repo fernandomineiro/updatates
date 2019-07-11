@@ -24,6 +24,12 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error creating table: " . $conn->error;
 }
+$sql = "DROP TABLE IF EXISTS valorsms";
+if ($conn->query($sql) === TRUE) {
+    echo "Table MyGuests created successfully";
+} else {
+    echo "Error creating table: " . $conn->error;
+}
 
 
 $sql = "CREATE TABLE `image` (
@@ -64,7 +70,7 @@ if ($conn->query($sql) === TRUE) {
 
 
 $sql = "CREATE TABLE `sms` (
-  `id` int(6) UNSIGNED NOT NULL,
+  `id` int(6) UNSIGNED,
   `sms` varchar(30) NOT NULL,
   `idusuario` int(200) DEFAULT NULL,
   `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -101,7 +107,7 @@ if ($conn->query($sql) === TRUE) {
 
 
 $sql = "CREATE TABLE `usuario` (
-  `id` int(6) UNSIGNED NOT NULL,
+  `id` int(6) UNSIGNED,
   `nome` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `senha` varchar(30) NOT NULL,
