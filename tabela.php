@@ -1,19 +1,43 @@
 <?php
 include "config.php";
 
-$sql = "SELECT idusuario, quantidade FROM valorsms";
-$result = $conn->query($sql);
+$sql = "DROP TABLE valorsms";
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["idusuario"];
-        echo $row["quantidade"];
-    }
+if ($conn->query($sql) === TRUE) {
+    echo "Record updated successfully";
 } else {
-    echo "0 results";
+    echo "Error updating record: " . $conn->error;
 }
-$conn->close();
 
+$sql = "CREATE TABLE valorsms (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    idusuario VARCHAR(idusuario) NOT NULL,
+    quantidade VARCHAR(30) NOT NULL,
+    reg_date TIMESTAMP
+    )";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "Table MyGuests created successfully";
+    } else {
+        echo "Error creating table: " . $conn->error;
+    }
+
+    $sql = "INSERT INTO valorsms (idusuario, quantidade)
+    VALUES ('1', '40')";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    $sql = "INSERT INTO valorsms (idusuario, quantidade)
+    VALUES ('1', '40')";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 
 ?>
+
