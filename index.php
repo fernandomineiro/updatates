@@ -2,7 +2,7 @@
 session_start();
 include "config.php";
 
-if (@$_SESSION['nome']!= ""){
+if (@$_SESSION['nomecicspro']!= ""){
   echo "<script>window.location = 'principal.php'</script>";
 }
 
@@ -104,17 +104,18 @@ if(isset($_POST['login'])){
     $row=mysqli_fetch_array($query);
 
     if (isset($_POST['remember'])){
-      //set up cookie
+    
       
       setcookie('sistema', time() + (86400 * 30)); // cookie will expire in a month, 86400 = 1 day
     }
 
-    $_SESSION['id']=$row['id'];
-    $_SESSION['nome']=$row['nome'];
-    $_SESSION['tipo']=$row['tipo'];
+    $_SESSION['idcicspro']=$row['id'];
+    $_SESSION['nomecicspro']=$row['nome'];
+    $_SESSION['tipocicspro']=$row['tipo'];
+    $_SESSION['idusuariocicspro']=$row['idusuario'];
 
     
-    header('location:principal.php');
+    echo "<script>window.location = 'principal.php'</script>";
   }
 }
 
@@ -138,5 +139,6 @@ if(isset($_POST['login'])){
 </script>
 </body>
 </html>
+
 
 
