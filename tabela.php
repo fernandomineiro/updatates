@@ -5,19 +5,19 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error creating table: " . $conn->error;
 }
-$sql = "TRUNCATE TABLE 'registro";
+$sql = "TRUNCATE TABLE 'registro'";
 if ($conn->query($sql) === TRUE) {
     echo "Table MyGuests created successfully";
 } else {
     echo "Error creating table: " . $conn->error;
 }
-$sql = "TRUNCATE TABLE 'sms";
+$sql = "TRUNCATE TABLE 'sms'";
 if ($conn->query($sql) === TRUE) {
     echo "Table MyGuests created successfully";
 } else {
     echo "Error creating table: " . $conn->error;
 }
-$sql = "TRUNCATE TABLE 'usuario";
+$sql = "TRUNCATE TABLE 'usuario'";
 if ($conn->query($sql) === TRUE) {
     echo "Table MyGuests created successfully";
 } else {
