@@ -25,7 +25,7 @@ $idusuario= $_SESSION['idusuariocicspro'];
    <div>
       <div class="col-xs-6">
          <label>Import CSV/Excel File:</label>
-         <input type="file" class="form-control" multiple name="filename" id="filename"><a href="exemplo.zip"> EXEMPLO DE ARQUIVO PARA IMPORTAÇÃO</a>
+         <input type="file" class="form-control" multiple name="filename" id="filename"><a href="exemploteste.zip"> EXEMPLO DE ARQUIVO PARA IMPORTAÇÃO</a>
          <br />
          <button type="submit" id="submit" class="btn btn-primary" name="submit" data-loading-text="Loading...">Upload</button>
       </div>
