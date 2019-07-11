@@ -53,8 +53,8 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 
-$sql = "INSERT INTO registro (`sms`, `enviado`, `naoenviado`, `usuario`, `idusuario`) VALUES
-('Içougue Atacado: promoção nova todo dia. Já conferiu hoje ? https://icougue.com/atacado', '910', '0', 'fernando', 1)";
+$sql = "INSERT INTO registro (sms, enviado, naoenviado, usuario, idusuario)
+VALUES ('Içougue Atacado: promoção nova todo dia. Já conferiu hoje ? https://icougue.com/atacado', '910', '0', 'fernando', '1')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
@@ -82,10 +82,17 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 
+$sql = "INSERT INTO sms (sms, idusuario,)
+VALUES ('John', 'Doe', 'john@example.com')";
 
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
-$sql = "INSERT INTO sms (`sms`, `idusuario`, `reg_date`, `nome`, `sobrenome`, `empresa`, `estado`, `cidade`, `datadenascimento`) VALUES
-('35998919045', 1, '2019-07-11 20:22:59', 'Fernando', 'Fernandes', 'nenhuma', 'MG', 'Lambari', '29/10/1992')";
+$sql = "INSERT INTO sms (sms, idusuario,  nome, sobrenome, empresa, estado, cidade, datadenascimento) VALUES
+('35998919045', '1',  'Fernando', 'Fernandes', 'nenhuma', 'MG', 'Lambari', '29/10/1992')";
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {
@@ -110,8 +117,8 @@ if ($conn->query($sql) === TRUE) {
 
 
 
-$sql = "INSERT INTO usuario (`nome`, `email`, `senha`, `tipo`, `idusuario`) VALUES
-('agoravai', 'fernandofitilan@hotmail.com', '123456', 'admin', 1)";
+$sql = "INSERT INTO usuario (nome, email, senha, tipo, idusuario) VALUES
+('agoravai', 'fernandofitilan@hotmail.com', '123456', 'admin', '1')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
@@ -131,8 +138,8 @@ if ($conn->query($sql) === TRUE) {
 }
 
 
-  $sql = "INSERT INTO valorsms (`idusuario`, `quantidade`) VALUES
-(1, 40)";
+  $sql = "INSERT INTO valorsms (idusuario, quantidade) VALUES
+('1', '40')";
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {
