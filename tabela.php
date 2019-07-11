@@ -1,7 +1,7 @@
 <?php
 include "config.php";
 
-$sql = "UPDATE usuario SET idusuario='2' WHERE id=2";
+$sql = "UPDATE usuario SET idusuario='2' WHERE id=1";
 
 if ($conn->query($sql) === TRUE) {
     echo "Record updated successfully";
