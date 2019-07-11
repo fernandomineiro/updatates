@@ -33,7 +33,7 @@ if ($conn->query($sql) === TRUE) {
 
 
 $sql = "CREATE TABLE `image` (
-  `image_id` int(11)UNSIGNED AUTO_INCREMENT,
+  `image_id` INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   `location` varchar(200) NOT NULL,
   `id_usuario` varchar(200) NOT NULL
 )";
@@ -45,7 +45,7 @@ if ($conn->query($sql) === TRUE) {
 
 
 $sql = "CREATE TABLE `registro` (
-  `id` int(6) UNSIGNED AUTO_INCREMENT,
+  `id` INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   `sms` varchar(120) NOT NULL,
   `enviado` varchar(50) DEFAULT NULL,
   `naoenviado` varchar(50) DEFAULT NULL,
@@ -70,7 +70,7 @@ if ($conn->query($sql) === TRUE) {
 
 
 $sql = "CREATE TABLE `sms` (
-  `id` int(6) UNSIGNED AUTO_INCREMENT,
+  `id` INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   `sms` varchar(30) NOT NULL,
   `idusuario` int(200) DEFAULT NULL,
   `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -99,7 +99,7 @@ if ($conn->query($sql) === TRUE) {
 
 
 $sql = "CREATE TABLE `usuario` (
-  `id` int(6) UNSIGNED AUTO_INCREMENT,
+  `id` INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   `nome` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `senha` varchar(30) NOT NULL,
