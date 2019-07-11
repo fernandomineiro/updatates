@@ -1,18 +1,13 @@
 <?php
 include "config.php";
-$sql = "CREATE TABLE image (
-image_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-location varchar(200) NOT NULL,
-id_usuario varchar(200) NOT NULL,
-reg_date TIMESTAMP
-)";
+
+$sql = "UPDATE valorsms SET quantidade=quantidade + 40 WHERE idusuario=2";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Criado com sucesso";
+    echo "Record updated successfully";
 } else {
-    echo "Error creating table: " . $conn->error;
+    echo "Error updating record: " . $conn->error;
 }
 
-$conn->close();
-?>
 
+?>
