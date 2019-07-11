@@ -1,4 +1,5 @@
 <?php
+include "config.php";
 $sql = "TRUNCATE TABLE 'image'";
 if ($conn->query($sql) === TRUE) {
     echo "Table MyGuests created successfully";
