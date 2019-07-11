@@ -11,7 +11,7 @@ if ($conn->query($sql) === TRUE) {
 
 $sql = "CREATE TABLE valorsms (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    idusuario VARCHAR(idusuario) NOT NULL,
+    idusuario VARCHAR NOT NULL,
     quantidade VARCHAR(30) NOT NULL,
     reg_date TIMESTAMP
     )";
