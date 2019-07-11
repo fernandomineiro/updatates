@@ -1,13 +1,15 @@
 <?php
 include "config.php";
 
-$sql = "UPDATE valorsms SET quantidade=quantidade + 40 WHERE idusuario=2";
+$sql = "INSERT INTO valorsms (idusuario, quantidade)
+VALUES ('2', '40')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
+    echo "New record created successfully";
 } else {
-    echo "Error updating record: " . $conn->error;
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
 
 
 ?>
