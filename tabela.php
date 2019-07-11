@@ -33,7 +33,7 @@ if ($conn->query($sql) === TRUE) {
 
 
 $sql = "CREATE TABLE `image` (
-  `image_id` int(11) NOT NULL,
+  `image_id` int(11)UNSIGNED,
   `location` varchar(200) NOT NULL,
   `id_usuario` varchar(200) NOT NULL
 )";
@@ -45,7 +45,7 @@ if ($conn->query($sql) === TRUE) {
 
 
 $sql = "CREATE TABLE `registro` (
-  `id` int(6) UNSIGNED NOT NULL,
+  `id` int(6) UNSIGNED,
   `sms` varchar(120) NOT NULL,
   `enviado` varchar(50) DEFAULT NULL,
   `naoenviado` varchar(50) DEFAULT NULL,
@@ -88,14 +88,6 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 
-$sql = "INSERT INTO sms (sms, idusuario,)
-VALUES ('John', 'Doe', 'john@example.com')";
-
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
 
 $sql = "INSERT INTO sms (sms, idusuario,  nome, sobrenome, empresa, estado, cidade, datadenascimento) VALUES
 ('35998919045', '1',  'Fernando', 'Fernandes', 'nenhuma', 'MG', 'Lambari', '29/10/1992')";
