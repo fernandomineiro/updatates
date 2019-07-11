@@ -1,24 +1,24 @@
 <?php
 include "config.php";
-$sql = "TRUNCATE TABLE 'image'";
+$sql = "DROP TABLE IF EXISTS image";
 if ($conn->query($sql) === TRUE) {
     echo "Table MyGuests created successfully";
 } else {
     echo "Error creating table: " . $conn->error;
 }
-$sql = "TRUNCATE TABLE 'registro'";
+$sql = "DROP TABLE IF EXISTS registro";
 if ($conn->query($sql) === TRUE) {
     echo "Table MyGuests created successfully";
 } else {
     echo "Error creating table: " . $conn->error;
 }
-$sql = "TRUNCATE TABLE 'sms'";
+$sql = "DROP TABLE IF EXISTS sms";
 if ($conn->query($sql) === TRUE) {
     echo "Table MyGuests created successfully";
 } else {
     echo "Error creating table: " . $conn->error;
 }
-$sql = "TRUNCATE TABLE 'usuario'";
+$sql = "DROP TABLE IF EXISTS usuario";
 if ($conn->query($sql) === TRUE) {
     echo "Table MyGuests created successfully";
 } else {
@@ -111,7 +111,7 @@ if ($conn->query($sql) === TRUE) {
 
 
 $sql = " INSERT INTO `usuario` (`nome`, `email`, `senha`, `tipo`, `idusuario`, `reg_date`) VALUES
-( 'agoravai', 'fernandofitilan@hotmail.com', '123456', 'admin', 1, '2019-07-09 12:26:36')";
+('agoravai', 'fernandofitilan@hotmail.com', '123456', 'admin', 1, '2019-07-09 12:26:36')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
@@ -124,7 +124,11 @@ $sql = "CREATE TABLE `valorsms` (
   `quantidade` int(200) DEFAULT NULL,
   `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
   )";
-
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
 
   $sql = "INSERT INTO `valorsms` (`idusuario`, `quantidade`, `reg_date`) VALUES
