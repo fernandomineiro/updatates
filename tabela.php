@@ -1,6 +1,6 @@
 <?php
 include "config.php";
-DROP TABLE table_name
+
 $sql = "DROP TABLE valorsms";
     
     if ($conn->query($sql) === TRUE) {
