@@ -22,7 +22,7 @@ $sql = "CREATE TABLE valorsms (
     }
 
     $sql = "INSERT INTO valorsms (idusuario, quantidade)
-    VALUES ('1', '40')";
+    VALUES (1, 40)";
     
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
@@ -30,13 +30,21 @@ $sql = "CREATE TABLE valorsms (
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
     $sql = "INSERT INTO valorsms (idusuario, quantidade)
-    VALUES ('1', '40')";
+    VALUES (1, 40)";
     
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+
+$sql = "UPDATE usuario SET idusuario=2 WHERE id=2";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . $conn->error;
+}
 
 $sql = "SELECT idusuario, quantidade FROM valorsms";
 $result = $conn->query($sql);
