@@ -1,15 +1,18 @@
 <?php
 include "config.php";
 
-$sql = "UPDATE usuario SET idusuario='2' WHERE id=1";
+$sql = "SELECT idusuario, quantidade FROM valorsms";
+$result = $conn->query($sql);
 
-if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["idusuario"]. " - Name: " . $row["quantidade"]. ";
+    }
 } else {
-    echo "Error updating record: " . $conn->error;
+    echo "0 results";
 }
-
-
+$conn->close();
 
 
 ?>
