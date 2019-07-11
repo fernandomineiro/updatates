@@ -53,8 +53,8 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 
-$sql = "INSERT INTO `registro` (`sms`, `enviado`, `naoenviado`, `usuario`, `idusuario`, `reg_date`) VALUES
-('Içougue Atacado: promoção nova todo dia. Já conferiu hoje ? https://icougue.com/atacado', '910', '0', 'fernando', 1, '2019-07-11 20:08:42')";
+$sql = "INSERT INTO registro (`sms`, `enviado`, `naoenviado`, `usuario`, `idusuario`) VALUES
+('Içougue Atacado: promoção nova todo dia. Já conferiu hoje ? https://icougue.com/atacado', '910', '0', 'fernando', 1)";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
@@ -84,7 +84,7 @@ if ($conn->query($sql) === TRUE) {
 
 
 
-$sql = "INSERT INTO `sms` (`sms`, `idusuario`, `reg_date`, `nome`, `sobrenome`, `empresa`, `estado`, `cidade`, `datadenascimento`) VALUES
+$sql = "INSERT INTO sms (`sms`, `idusuario`, `reg_date`, `nome`, `sobrenome`, `empresa`, `estado`, `cidade`, `datadenascimento`) VALUES
 ('35998919045', 1, '2019-07-11 20:22:59', 'Fernando', 'Fernandes', 'nenhuma', 'MG', 'Lambari', '29/10/1992')";
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
@@ -110,8 +110,8 @@ if ($conn->query($sql) === TRUE) {
 
 
 
-$sql = " INSERT INTO `usuario` (`nome`, `email`, `senha`, `tipo`, `idusuario`, `reg_date`) VALUES
-('agoravai', 'fernandofitilan@hotmail.com', '123456', 'admin', 1, '2019-07-09 12:26:36')";
+$sql = "INSERT INTO usuario (`nome`, `email`, `senha`, `tipo`, `idusuario`) VALUES
+('agoravai', 'fernandofitilan@hotmail.com', '123456', 'admin', 1)";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
@@ -131,8 +131,8 @@ if ($conn->query($sql) === TRUE) {
 }
 
 
-  $sql = "INSERT INTO `valorsms` (`idusuario`, `quantidade`, `reg_date`) VALUES
-(1, 40, '2019-07-11 18:35:04')";
+  $sql = "INSERT INTO valorsms (`idusuario`, `quantidade`) VALUES
+(1, 40)";
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {
