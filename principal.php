@@ -1,8 +1,10 @@
 
 <?php
 
-include"menu.php";
+include "menu.php";
 include "config.php";
+
+$idusuario= $_SESSION['idusuariocicspro'];
 
 ?>
   <!-- Content Wrapper. Contains page content -->
@@ -22,24 +24,55 @@ include "config.php";
       <div class="row">
         
         <!-- ./col -->
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+            <?php
+            $sql = "SELECT quantidade FROM valorsms WHERE idusuario='$idusuario'";
+            $result = $conn->query($sql);
+            
+            if ($result->num_rows > 0) {
+                
+                while($row = $result->fetch_assoc()) {
+                  $sms=$row["quantidade"];
+                }
+              }
+              
+            ?>
+              <h3><?php echo"$sms"; ?></h3>
+
+              <p>Crédito(s)</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-wechat"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+              Mais informações <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
             <?php
-            $sql = "SELECT id FROM registro ORDER BY id DESC LIMIT 1";
+            $sql = "SELECT COUNT(id) AS a FROM registro WHERE idusuario='$idusuario'";
             $result = $conn->query($sql);
             
-            if ($result->num_rows > 0) {
+            if (@$result->num_rows > 0) {
                 // output data of each row
                 while($row = $result->fetch_assoc()) {
-                  $registro=$row["id"];
+                  $registro=$row["a"];
                 }
               }
+              if (@$registro == NULL){
+                $registro = 0;
+              } 
             ?>
               <h3><?php echo"$registro" ?></h3>
 
-              <p>Registros</p>
+              <p>Envio(s)</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -48,30 +81,31 @@ include "config.php";
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
             <?php
-            $sql = "SELECT id FROM usuario ORDER BY id DESC LIMIT 1";
+            $sql = "SELECT COUNT(id) AS b FROM usuario WHERE idusuario='$idusuario'";
             $result = $conn->query($sql);
             
             if ($result->num_rows > 0) {
                 // output data of each row
                 while($row = $result->fetch_assoc()) {
-                  $usuario=$row["id"];
+                  $usuario=$row["b"];
                 }
               }
+              
             ?>
               <h3><?php echo"$usuario" ?></h3>
 
-              <p>Usuario</p>
+              <p>Usuario(s)</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
             <?php
-            if ($_SESSION['tipo'] == "admin"){
+            if ($_SESSION['tipocicspro'] == "admin"){
                 ?>
             <a href="tableusuario.php" class="small-box-footer">Mais informações<i class="fa fa-arrow-circle-right"></i></a>
         
@@ -87,24 +121,27 @@ include "config.php";
             </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
             <?php
-            $sql = "SELECT id FROM sms ORDER BY id DESC LIMIT 1";
+            $sql = "SELECT COUNT(id) AS c FROM sms WHERE idusuario='$idusuario'";
             $result = $conn->query($sql);
             
-            if ($result->num_rows > 0) {
+            if (@$result->num_rows > 0) {
                 // output data of each row
                 while($row = $result->fetch_assoc()) {
-                  $sms=$row["id"];
+                  $sms=$row["c"];
                 }
               }
+              if (@$sms == NULL){
+                $sms = 0;
+              } 
             ?>
               <h3><?php echo"$sms" ?></h3>
 
-              <p>Telefones</p>
+              <p>Telefone(s)</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
@@ -117,6 +154,7 @@ include "config.php";
       </div>
       <!-- /.row -->
       <!-- Main row -->
+     
       
             <!-- /.chat -->
             
@@ -131,13 +169,9 @@ include "config.php";
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Versão</b> 1.0
-    </div>
-    <strong>
-    CICS
-  </footer>
+  <?php
+  include"footer.php";
+  ?>
 
   <!-- Control Sidebar -->
  
@@ -187,3 +221,4 @@ include "config.php";
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
+
